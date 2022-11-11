@@ -8,7 +8,8 @@ use App\Http\Controllers\API\RegistroController;
 use App\Http\Controllers\API\JuezController;
 use App\Http\Controllers\API\DelegadoController;
 use App\Http\Controllers\API\CampeonatoController;
-use App\Http\Controllers\API\CategoriaController;
+use App\Http\Controllers\API\EquipoController;
+use App\Http\Controllers\API\PersonaController;
 
 
 /*
@@ -62,10 +63,18 @@ Route::group(['Middleware'=>'api'],function(){
     Route::get('/listar-camp',[CampeonatoController::class,'show']);
     Route::put('/editar-camp/{id}', [CampeonatoController::class,'update']);
     Route::delete('/eliminar-camp/{id}', [CampeonatoController::class,'destroy']);
-    //-----------categoria
-    Route::get('/index-cat/{id}', [CategoriaController::class,'index']);
-    Route::post('/add-cat', [CategoriaController::class,'store']);
-    Route::get('/listar-cat',[CategoriaController::class,'show']);
-    Route::put('/editar-cat/{id}', [CategoriaController::class,'update']);
-    Route::delete('/eliminar-cat/{id}', [CategoriaController::class,'destroy']);
+    //-----------equipo
+    Route::get('/index-equipo/{id}', [EquipoController::class,'index']);
+    Route::post('/add-equipo', [EquipoController::class,'store']);
+    Route::get('/listar-equipo',[EquipoController::class,'show']);
+    Route::get('/equipos/{id}',[EquipoController::class,'viewId']);
+    Route::put('/editar-equipo/{id}', [EquipoController::class,'update']);
+    Route::delete('/eliminar-equipo/{id}', [EquipoController::class,'destroy']);
+    //---------persona
+    Route::get('/index-per/{id}', [PersonaController::class,'index']);
+    Route::post('/add-persona', [PersonaController::class,'store']);
+    Route::get('/listar-persona',[PersonaController::class,'show']);
+    Route::get('/personas/{nombre}',[PersonaController::class,'show']);
+    Route::put('/editar-persona/{id}', [PersonaController::class,'update']);
+    Route::delete('/eliminar-persona/{id}', [PersonaController::class,'destroy']);
 });

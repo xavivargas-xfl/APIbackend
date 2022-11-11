@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateCampeonatosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('campeonatos', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users');
             $table->string('nombre');
             $table->string('fechaInicio');
             $table->string('fechaFin');

@@ -15,12 +15,15 @@ class CreatePersonasTable extends Migration
     {
         Schema::create('personas', function (Blueprint $table) {
             $table->id('id_persona');
+            $table->string('id_equipo');
+            $table->foreign('id_equipo')->references('id_equipo')->on('equipos');
             $table->String('nombre');
             $table->String('apellido');
+            $table->String('rol');
             $table->String('ci');
-            $table->String('sexo');
-            $table->String('edad');
-            $table->String('nacionalidad');
+            $table->String('genero');
+            $table->String('fechaNac');
+            $table->String('pais');
             $table->timestamps();
         });
     }

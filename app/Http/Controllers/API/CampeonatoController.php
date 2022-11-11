@@ -17,6 +17,7 @@ class CampeonatoController extends Controller
     public function store(Request $request)
     {
         $campeonato = new Campeonato;
+        $campeonato->id_user = $request->input('id_user');
         $campeonato->nombre = $request->input('nombre');
         $campeonato->fechaInicio = $request->input('fechaInicio');
         $campeonato->fechaFin = $request->input('fechaFin');

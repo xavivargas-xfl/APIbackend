@@ -18,7 +18,7 @@ class CreateRegistrosTable extends Migration
             $table->String('codigo')->unique();
             $table->String('rol');
             $table->String('email')->unique();
-            $table->String('ci');
+            $table->String('ci')->unique();
             $table->timestamps();
         });
     }
